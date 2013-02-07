@@ -56,6 +56,9 @@ Bundle "tpope/vim-fugitive"
 "最近流行的插件，用于维护剪切板
 Bundle "YankRing.vim"
 
+"for js
+Bundle "pangloss/vim-javascript"
+
 "-------------- for Python programmers ------------{{{2
 "Python.vim
 Bundle "python.vim--Vasiliev"
@@ -63,7 +66,12 @@ Bundle "python.vim--Vasiliev"
 "Bundle "kevinw/pyflakes-vim"
 "Python mode
 Bundle "klen/python-mode"
+"pep8 indent.很久以前我就在尋思這個插件，沒有人實現那.現在有啦！好東西哦
+Bundle "hynek/vim-python-pep8-indent"
 "--------------------------------------------------2}}}
+"----------- for coffee-script---------------------{{{2
+Bundle "vim-coffee-script"
+"---------------------------------------------------2}}}
 
 "-------------------------------------------------------------1}}}
 
@@ -285,6 +293,18 @@ let g:ConqueTerm_EscKey = '<Esc>'
 let g:ConqueTerm_ReadUnfocused = 1 " keep updating when not in buffer
 let g:ConqueTerm_CWInsert = 1 " Can <C-w> out of a terminal buffer
 
+"---------------------- vim-javascript
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+"--------------------  for pythonist, use vim-pep8-indent instead of pymode
+let g:pymode_indent = 0
+" Dont Load rope plugin
+let g:pymode_rope = 0
+" Disable pylint checking every save
+let g:pymode_lint_write = 0
+
+
 "-------------------------------------插件配置end-----------------------------1}}}
 
 func! Runit()
@@ -311,6 +331,8 @@ func! Runit()
     elseif &filetype=='go'
         exec "!go build %"
         exec "! ./%<"
+    elseif &filetype=='coffee'
+        exec "!coffee %"
     endif
 endfunc
 
