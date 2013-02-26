@@ -72,3 +72,6 @@ install_powerline_precmd
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### for rvm
+source /home/hit9/.rvm/scripts/rvm
