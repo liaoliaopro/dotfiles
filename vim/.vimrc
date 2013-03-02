@@ -6,6 +6,9 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+"se git:// as default protocol. I hate that "hung up .."
+let g:vundle_default_git_proto="git"
+
 "---------------------------- 配色 -------------------------{{{2
 "solarized 配色
 Bundle "altercation/vim-colors-solarized"
