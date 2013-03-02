@@ -33,8 +33,14 @@
 
 - sakura: `.sakura.conf`
 
+- [sjl/t](https://github.com/sjl/t) (一个todo管理工具)
+
 我如何使用
 ----------
+
+```
+git clone --branch=master --depth=1 git://github.com/hit9/dotfiles.git
+```
 
 ### 1.使用make
 
