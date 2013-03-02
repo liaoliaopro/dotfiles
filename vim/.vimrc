@@ -75,6 +75,7 @@ Bundle "vim-coffee-script"
 "less syntax
 Bundle "groenewege/vim-less"
 
+Bundle "Lokaltog/powerline"
 "-------------------------------------------------------------1}}}
 
 
@@ -260,8 +261,10 @@ let NERDTreeShowLineNumbers=1
 "状态栏
 set laststatus=2
 "powerline  : pip install git+git://github.com/Lokaltog/powerline
-python from powerline.bindings.vim import source_plugin; source_plugin()
-" ------------------------------------------------ 2}}}
+"any time, this source will work.but i dont want to use the powerline as a
+"bundle for vim ,actually it is not a vim plugin but indeed a python module
+source ~/.vim/bundle/powerline/powerline/bindings/vim/plugin/powerline.vim
+"----------------------------------------------- 2}}}
 
 "pep8, ctrl-k作为检查快捷键
 let g:pep8_map='<C-k>' 

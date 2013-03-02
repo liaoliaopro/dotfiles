@@ -35,6 +35,7 @@ powerline: fonts submodule
 	cd Lokaltog-powerline; git checkout develop; git pull ; python setup.py install
 	mkdir -p ~/.config/powerline/themes
 	mkdir -p ~/.config/powerline/colorschemes
+	ln $(LNSOPT) $(CURDIR)/powerline/config.json ~/.config/powerline/
 
 vim: powerline submodule
 
