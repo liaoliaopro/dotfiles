@@ -53,6 +53,9 @@ alias reload!='. ~/.zshrc'
 # alias for quick server
 alias pyserver='python -m SimpleHTTPServer'
 
+# alias for sjl/t
+alias t='python ~/.t/t.py --task-dir ~/.task-dir-for-t --list tasks'
+
 # powerline-shell
 function powerline_precmd() {
   export PS1="$(powerline-bash.py $? --shell zsh)"

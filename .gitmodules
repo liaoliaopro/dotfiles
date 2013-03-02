@@ -16,3 +16,6 @@
 [submodule "vim/pyflakes"]
 	path = vim/pyflakes
 	url = https://github.com/kevinw/pyflakes.git
+[submodule "t"]
+	path = t
+	url = https://github.com/sjl/t
