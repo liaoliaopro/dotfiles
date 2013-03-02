@@ -1,5 +1,5 @@
 # vim:set noet: 
-.PHONY : usage conky fonts git sakura bash vim zsh tmux ipython
+.PHONY : usage conky fonts git sakura bash vim zsh tmux ipython t
 
 usage:
 
@@ -35,6 +35,7 @@ powerline: fonts submodule
 	cd Lokaltog-powerline; git checkout develop; git pull ; python setup.py install
 	mkdir -p ~/.config/powerline/themes
 	mkdir -p ~/.config/powerline/colorschemes
+	ln $(LNSOPT) $(CURDIR)/powerline/config.json ~/.config/powerline/
 
 vim: powerline submodule
 
@@ -86,4 +87,8 @@ ipython: powerline
 
 	ln $(LNSOPT) $(CURDIR)/ipython/ipython_config.py ~/.ipython/profile_default/
 
-all: sakura git conky bash tmux vim zsh
+t:submodule
+	ln $(LNSOPT) $(CURDIR)/t ~/.t
+	ln $(LNSOPT) $(CURDIR)/task-dir-for-t ~/.task-dir-for-t
+
+all: sakura git conky bash tmux vim zsh t
