@@ -71,6 +71,8 @@ Bundle "python.vim--Vasiliev"
 Bundle "klen/python-mode"
 "pep8 indent.很久以前我就在尋思這個插件，沒有人實現那.現在有啦！好東西哦
 Bundle "hynek/vim-python-pep8-indent"
+"jinja2 syntax
+Bundle "jeanmenezes/vim-jinja"
 "--------------------------------------------------2}}}
 "----------- for coffee-script---------------------{{{2
 Bundle "vim-coffee-script"
