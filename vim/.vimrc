@@ -92,7 +92,7 @@ filetype plugin indent on
 
 "-------------- 基本-------------------------------------------{{{1
 syntax enable
-se nu  "显示行号
+"se nu  "显示行号
 "终端模式:xterm-256color,这个终端模式支持功能键Home,End等
 set term=xterm-256color
 "终端下名字由vim设置
@@ -135,6 +135,7 @@ set incsearch
 
 set ruler
 
+"
 "------------------------------------------------------------------ 1}}}
 
 " ------------------ gui --------------------------------------------{{{1
@@ -372,15 +373,15 @@ map <C-v> "+p
 
 "--------------  用户自定义命令 --------------------------------------{{{1
 ":R快速执行程序
-:command -range=% R :call Runit()
+:command R :call Runit()
 "自动PEP8修改当前py文件
-:command -range=% PEP8 :!autopep8 -i %
+:command PEP8 :!autopep8 -i %
 "打开/关闭Nerdtree
-:command -range=% NT :NERDTreeToggle
+:command NT :NERDTreeToggle
 "打开/关闭tagbar
-:command -range=% TG :TlistToggle
+:command G :TlistToggle
 "打开YankRing
-:command -range=% YR :YRShow
+:command YR :YRShow
 "打开关闭Gundo
-:command -range=% GD :GundoToggle
-"---------------------------------------------------------------------1}}}
+:command GD :GundoToggle
+" ---------------------------------------------------------------------1}}}
