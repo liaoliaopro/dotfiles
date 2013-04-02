@@ -81,6 +81,9 @@ Bundle "vim-coffee-script"
 Bundle "groenewege/vim-less"
 
 Bundle "Lokaltog/powerline"
+"toml!
+Bundle "cespare/vim-toml"
+""
 "-------------------------------------------------------------1}}}
 
 
@@ -143,7 +146,7 @@ set ruler
 set guioptions-=T           " gvim隐藏工具栏
 set guioptions-=m           " gvim隐藏菜单栏
 "设置gvim的字体
-set guifont=Inconsolata-g\ for\ Powerline\ 13
+set guifont=Inconsolata-g\ for\ Powerline\ 14
 
 "--------------------------------------------------------------------1}}}
 
