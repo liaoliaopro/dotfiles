@@ -83,6 +83,8 @@ Bundle "groenewege/vim-less"
 Bundle "Lokaltog/powerline"
 "toml!
 Bundle "cespare/vim-toml"
+"haml,sass
+Bundle "tpope/vim-haml"
 ""
 "-------------------------------------------------------------1}}}
 
@@ -90,7 +92,7 @@ Bundle "cespare/vim-toml"
 "-------------------- 根据文件类型(注意，放在bundle之后)------{{{1
 " 针对不同的文件类型加载对应的插件
 " 针对不同的文件类型采用不同的缩进格式
-filetype plugin indent on   
+filetype plugin indent on
 "--------------------------------------------------------------1}}}
 
 "-------------- 基本-------------------------------------------{{{1
@@ -105,7 +107,7 @@ set t_Co=256
 "允许有未保存的内容时切换缓冲区
 set hidden
 set ttyfast
-syntax on 
+syntax on
 "输入的命令显示出来
 set showcmd
 "显示当前模式
@@ -180,7 +182,7 @@ autocmd FileType python set textwidth=79 " PEP-8 Friendly
 "------------------ tab键 --------------------------------------------{{{1
 
 "把输入的tab自动转换成空格，Python用户必用~
-set expandtab 
+set expandtab
 "一个tab键占据4个空格
 set tabstop=4
 "一开始,插入的就是4个空格,此时一旦你再按下一次tab,这次的四个空格就会和上次的四个空格组合起来变成一个制表符
@@ -276,7 +278,7 @@ source ~/.vim/bundle/powerline/powerline/bindings/vim/plugin/powerline.vim
 "----------------------------------------------- 2}}}
 
 "pep8, ctrl-k作为检查快捷键
-let g:pep8_map='<C-k>' 
+let g:pep8_map='<C-k>'
 
 
 "gundo 宽度
@@ -329,8 +331,8 @@ func! Runit()
     elseif &filetype == 'cpp'
         exec "!g++ % -o %<"
         exec "! ./%<"
-    elseif &filetype == 'java' 
-        exec "!javac %" 
+    elseif &filetype == 'java'
+        exec "!javac %"
         exec "!java %<"
     elseif &filetype == 'php'
         exec "!php %"
@@ -387,4 +389,7 @@ map <C-v> "+p
 :command YR :YRShow
 "打开关闭Gundo
 :command GD :GundoToggle
+"清楚行尾空白
+:command WS :%s/\s\+$//e
 " ---------------------------------------------------------------------1}}}
+"
