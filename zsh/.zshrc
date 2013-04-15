@@ -52,7 +52,8 @@ eval `dircolors ~/dircolors.256dark`
 alias reload!='. ~/.zshrc'
 # alias for quick server
 alias pyserver='python -m SimpleHTTPServer'
-
+# get file size
+alias sizeof='stat -c %s'
 # alias for sjl/t
 alias t='python ~/.t/t.py --task-dir ~/.task-dir-for-t --list tasks'
 

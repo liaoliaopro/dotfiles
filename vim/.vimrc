@@ -71,6 +71,8 @@ Bundle "python.vim--Vasiliev"
 Bundle "klen/python-mode"
 "pep8 indent.很久以前我就在尋思這個插件，沒有人實現那.現在有啦！好東西哦
 Bundle "hynek/vim-python-pep8-indent"
+"jinja2 syntax
+Bundle "Glench/Vim-Jinja2-Syntax"
 "--------------------------------------------------2}}}
 "----------- for coffee-script---------------------{{{2
 Bundle "vim-coffee-script"
@@ -79,18 +81,24 @@ Bundle "vim-coffee-script"
 Bundle "groenewege/vim-less"
 
 Bundle "Lokaltog/powerline"
+"toml!
+Bundle "cespare/vim-toml"
+"haml,sass
+Bundle "tpope/vim-haml"
+""
+" Bundle "terryma/vim-multiple-cursors"
 "-------------------------------------------------------------1}}}
 
 
 "-------------------- 根据文件类型(注意，放在bundle之后)------{{{1
 " 针对不同的文件类型加载对应的插件
 " 针对不同的文件类型采用不同的缩进格式
-filetype plugin indent on   
+filetype plugin indent on
 "--------------------------------------------------------------1}}}
 
 "-------------- 基本-------------------------------------------{{{1
 syntax enable
-se nu  "显示行号
+"se nu  "显示行号
 "终端模式:xterm-256color,这个终端模式支持功能键Home,End等
 set term=xterm-256color
 "终端下名字由vim设置
@@ -100,7 +108,7 @@ set t_Co=256
 "允许有未保存的内容时切换缓冲区
 set hidden
 set ttyfast
-syntax on 
+syntax on
 "输入的命令显示出来
 set showcmd
 "显示当前模式
@@ -133,6 +141,7 @@ set incsearch
 
 set ruler
 
+"
 "------------------------------------------------------------------ 1}}}
 
 " ------------------ gui --------------------------------------------{{{1
@@ -140,7 +149,7 @@ set ruler
 set guioptions-=T           " gvim隐藏工具栏
 set guioptions-=m           " gvim隐藏菜单栏
 "设置gvim的字体
-set guifont=Inconsolata-g\ for\ Powerline\ 13
+set guifont=Inconsolata-g\ for\ Powerline\ 14
 
 "--------------------------------------------------------------------1}}}
 
@@ -174,7 +183,7 @@ autocmd FileType python set textwidth=79 " PEP-8 Friendly
 "------------------ tab键 --------------------------------------------{{{1
 
 "把输入的tab自动转换成空格，Python用户必用~
-set expandtab 
+set expandtab
 "一个tab键占据4个空格
 set tabstop=4
 "一开始,插入的就是4个空格,此时一旦你再按下一次tab,这次的四个空格就会和上次的四个空格组合起来变成一个制表符
@@ -270,7 +279,7 @@ source ~/.vim/bundle/powerline/powerline/bindings/vim/plugin/powerline.vim
 "----------------------------------------------- 2}}}
 
 "pep8, ctrl-k作为检查快捷键
-let g:pep8_map='<C-k>' 
+let g:pep8_map='<C-k>'
 
 
 "gundo 宽度
@@ -323,8 +332,8 @@ func! Runit()
     elseif &filetype == 'cpp'
         exec "!g++ % -o %<"
         exec "! ./%<"
-    elseif &filetype == 'java' 
-        exec "!javac %" 
+    elseif &filetype == 'java'
+        exec "!javac %"
         exec "!java %<"
     elseif &filetype == 'php'
         exec "!php %"
@@ -341,6 +350,8 @@ func! Runit()
         exec "! ./%<"
     elseif &filetype=='coffee'
         exec "!coffee %"
+    elseif &filetype=='less'
+        exec "!lessc % %<.css"
     endif
 endfunc
 
@@ -368,15 +379,18 @@ map <C-v> "+p
 
 "--------------  用户自定义命令 --------------------------------------{{{1
 ":R快速执行程序
-:command -range=% R :call Runit()
+:command R :call Runit()
 "自动PEP8修改当前py文件
-:command -range=% PEP8 :!autopep8 -i %
+:command PEP8 :!autopep8 -i %
 "打开/关闭Nerdtree
-:command -range=% NT :NERDTreeToggle
+:command NT :NERDTreeToggle
 "打开/关闭tagbar
-:command -range=% TG :TlistToggle
+:command G :TlistToggle
 "打开YankRing
-:command -range=% YR :YRShow
+:command YR :YRShow
 "打开关闭Gundo
-:command -range=% GD :GundoToggle
-"---------------------------------------------------------------------1}}}
+:command GD :GundoToggle
+"清楚行尾空白
+:command WS :%s/\s\+$//e
+" ---------------------------------------------------------------------1}}}
+"
