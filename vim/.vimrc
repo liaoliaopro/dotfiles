@@ -86,6 +86,7 @@ Bundle "cespare/vim-toml"
 "haml,sass
 Bundle "tpope/vim-haml"
 ""
+" Bundle "terryma/vim-multiple-cursors"
 "-------------------------------------------------------------1}}}
 
 
