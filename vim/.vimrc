@@ -23,7 +23,7 @@ Bundle "jiangmiao/auto-pairs"
 "snipmate的依赖
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
+Bundle "honza/vim-snippets"
 "snipmate
 Bundle "garbas/vim-snipmate"
 "-----------------------------------2}}}
@@ -86,7 +86,7 @@ Bundle "cespare/vim-toml"
 "haml,sass
 Bundle "tpope/vim-haml"
 ""
-" Bundle "terryma/vim-multiple-cursors"
+Bundle "terryma/vim-multiple-cursors"
 "-------------------------------------------------------------1}}}
 
 
@@ -140,6 +140,8 @@ set hlsearch
 set incsearch
 
 set ruler
+
+set nowrap
 
 "
 "------------------------------------------------------------------ 1}}}
