@@ -57,7 +57,7 @@ Bundle "Lokaltog/vim-easymotion"
 Bundle "tpope/vim-fugitive"
 
 "最近流行的插件，用于维护剪切板
-Bundle "YankRing.vim"
+" Bundle "YankRing.vim"
 
 "for js
 Bundle "pangloss/vim-javascript"

@@ -34,9 +34,8 @@ DISABLE_AUTO_TITLE="true"
 
 # Example format: plugins=(rails git textmate ruby lighthouse)a
 
-source /usr/local/bin/virtualenvwrapper.sh
 
-plugins=(git python pip compleat virtualenvwrapper extract)
+plugins=(git python pip compleat  extract)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,4 +77,4 @@ install_powerline_precmd
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ### for rvm
-source /home/hit9/.rvm/scripts/rvm
+# source /home/hit9/.rvm/scripts/rvm
