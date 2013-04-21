@@ -76,6 +76,7 @@ bash: fonts dircolors-solarized powerline-shell
 
 sakura: fonts
 
+	mkdir -p ~/.config/sakura
 	ln $(LNSOPT) $(CURDIR)/sakura/.config/sakura/sakura.conf  ~/.config/sakura/sakura.conf
 
 zsh: fonts dircolors-solarized  powerline-shell
