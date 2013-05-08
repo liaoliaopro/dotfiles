@@ -88,8 +88,7 @@ ipython: powerline
 
 	ln $(LNSOPT) $(CURDIR)/ipython/ipython_config.py ~/.ipython/profile_default/
 
-t:submodule
-	ln $(LNSOPT) $(CURDIR)/t ~/.t
-	ln $(LNSOPT) $(CURDIR)/task-dir-for-t ~/.task-dir-for-t
+todo: submodule
+	ln $(LNSOPT) $(CURDIR)/todo.txt ~/todo.txt
 
-all: sakura git conky bash tmux vim zsh t
+all: sakura git conky bash tmux vim zsh todo

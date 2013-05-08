@@ -16,3 +16,6 @@
 [submodule "vim/pyflakes"]
 	path = vim/pyflakes
 	url = git://github.com/kevinw/pyflakes.git
+[submodule "todo"]
+	path = todo
+	url = git@github.com:secreek/todo.git
