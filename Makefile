@@ -1,5 +1,5 @@
 # vim:set noet: 
-.PHONY : usage conky fonts git sakura bash vim zsh tmux ipython t
+.PHONY : usage conky fonts git bash vim tmux ipython
 
 usage:
 
@@ -32,17 +32,19 @@ fonts:
 
 powerline: fonts submodule
 
-	cd Lokaltog-powerline; git checkout develop; git pull ; python setup.py install
+	cd plugins/powerline; git checkout develop; git pull ; python setup.py install
 	mkdir -p ~/.config/powerline/themes
 	mkdir -p ~/.config/powerline/colorschemes
 	ln $(LNSOPT) $(CURDIR)/powerline/config.json ~/.config/powerline/
 
-vim: powerline submodule
+#vim: powerline submodule
+vim: submodule
 
-	cd vim/vundle ; git checkout master ; git pull;
-	cd vim/pyflakes ; git checkout master ;git pull;python setup.py install;
-	mkdir -p ~/.vim/bundle/ 
-	ln $(LNSOPT) $(CURDIR)/vim/vundle ~/.vim/bundle/vundle
+	cd vim/bundle/vundle ; git checkout master ; git pull;
+	#mkdir -p ~/.vim 
+	mv ~/.vim ~/.vim_bakcup
+	mv ~/.vimrc ~/.vimrc_bakcup
+	ln $(LNSOPT) $(CURDIR)/vim ~/.vim
 	ln $(LNSOPT) $(CURDIR)/vim/.vimrc ~/.vimrc
 	vim -c "BundleInstall"
 
@@ -63,32 +65,20 @@ git:
 
 dircolors-solarized:  submodule
 
-	cd dircolors-solarized; git checkout master ; git pull ;
-	ln $(LNSOPT) $(CURDIR)/dircolors-solarized/dircolors.256dark ~/dircolors.256dark
+	cd plugins/dircolors-solarized; git checkout master ; git pull ;
+	ln $(LNSOPT) $(CURDIR)/plugins/dircolors-solarized/dircolors.256dark ~/dircolors.256dark
 	
 powerline-shell: submodule
 
-	cd powerline-shell; git checkout master; git pull ; python setup.py install
+	cd plugins/powerline-shell; git checkout master; git pull ; python setup.py install
 
 bash: fonts dircolors-solarized powerline-shell
 
 	ln $(LNSOPT) $(CURDIR)/bash/.bashrc ~/.bashrc
 
-sakura: fonts
-
-	mkdir -p ~/.config/sakura
-	ln $(LNSOPT) $(CURDIR)/sakura/.config/sakura/sakura.conf  ~/.config/sakura/sakura.conf
-
-zsh: fonts dircolors-solarized  powerline-shell
-
-	ln $(LNSOPT) $(CURDIR)/oh-my-zsh ~/.oh-my-zsh
-	ln $(LNSOPT) $(CURDIR)/zsh/.zshrc ~/.zshrc
-
 ipython: powerline 
 
 	ln $(LNSOPT) $(CURDIR)/ipython/ipython_config.py ~/.ipython/profile_default/
 
-todo: submodule
-	ln $(LNSOPT) $(CURDIR)/todo.txt ~/todo.txt
+all: git conky bash tmux vim
 
-all: sakura git conky bash tmux vim zsh todo
