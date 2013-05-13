@@ -1,21 +1,12 @@
-[submodule "dircolors-solarized"]
-	path = dircolors-solarized
-	url = git://github.com/seebi/dircolors-solarized.git
-[submodule "vim/vundle"]
+[submodule "vundle"]
 	path = vim/vundle
 	url = git://github.com/gmarik/vundle.git
-[submodule "Lokaltog-powerline"]
-	path = Lokaltog-powerline
+[submodule "dircolors-solarized"]
+	path = plugins/dircolors-solarized
+	url = git://github.com/seebi/dircolors-solarized.git
+[submodule "powerline"]
+	path = plugins/powerline
 	url = git://github.com/Lokaltog/powerline.git
 [submodule "powerline-shell"]
-	path = powerline-shell
-	url = git://github.com/hit9/powerline-shell.git
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule "vim/pyflakes"]
-	path = vim/pyflakes
-	url = git://github.com/kevinw/pyflakes.git
-[submodule "todo"]
-	path = todo
-	url = git@github.com:secreek/todo.git
+	path = plugins/powerline-shell
+	url = git://github.com/milkbikis/powerline-shell.git
