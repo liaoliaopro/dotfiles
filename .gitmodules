@@ -1,13 +1,13 @@
-[submodule "vim/vundle"]
-	path = vim/vundle
-	url = git://github.com/gmarik/vundle.git
 [submodule "plugins/dircolors-solarized"]
 	path = plugins/dircolors-solarized
-	url = git://github.com/seebi/dircolors-solarized.git
+	url = https://github.com/seebi/dircolors-solarized.git
 [submodule "plugins/powerline"]
 	path = plugins/powerline
-	url = git://github.com/Lokaltog/powerline.git
+	url = https://github.com/Lokaltog/powerline.git
 [submodule "plugins/powerline-shell"]
 	path = plugins/powerline-shell
-	url = git://github.com/milkbikis/powerline-shell.git
+	url = https://github.com/milkbikis/powerline-shell.git
 
+[submodule "vim/bundle/vundle"]
+	path = vim/bundle/vundle
+	url = https://github.com/gmarik/vundle.git
