@@ -40,8 +40,6 @@ powerline: fonts submodule
 #vim: powerline submodule
 vim: submodule
 
-	cd vim/bundle/vundle ; git checkout master ; git pull;
-	#mkdir -p ~/.vim 
 	mv ~/.vim ~/.vim_bakcup
 	mv ~/.vimrc ~/.vimrc_bakcup
 	ln $(LNSOPT) $(CURDIR)/vim ~/.vim
