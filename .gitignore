@@ -6,6 +6,8 @@ dircolors-solarized/*
 tmux-powerline/*
 build/
 Powerline.egg-info/
-vim/bundle/
+vim/bundle/*
+!vim/bundle/vundle
 vim/tmp/*
+!vim/tmp/.gitkeep
 
