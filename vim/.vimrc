@@ -132,8 +132,8 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
 " }}}
 
-Bundle 'Shougo/neosnippet'
-Bundle 'vim-scripts/L9'
+Bundle 'SirVer/ultisnips'
+Bundle 'JazzCore/neocomplcache-ultisnips'
 
 Bundle 'kana/vim-fakeclip'
 Bundle 'fholgado/minibufexpl.vim'
@@ -147,12 +147,11 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'sjl/gundo.vim'
 map <leader>gd :GundoToggle<CR>
 
-Bundle 'majutsushi/tagbar'
-nmap <leader>t :TagbarToggle<CR>
+"Bundle 'majutsushi/tagbar'
+"nmap <leader>t :TagbarToggle<CR>
 
 Bundle 'scrooloose/nerdtree'
 nmap <leader>e :NERDTreeToggle<CR>
-"nmap <C-n> :NERDTreeToggle<CR>
 " Disable the scrollbars (NERDTree)
 set guioptions-=r
 set guioptions-=L
