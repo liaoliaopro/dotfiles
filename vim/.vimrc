@@ -35,7 +35,7 @@ Bundle 'jelera/vim-javascript-syntax'
 
 " c/c++
 "Bundle 'vim-scripts/a.vim'
-"Bundle 'Rip-Rip/clang_complete'
+Bundle 'Rip-Rip/clang_complete'
 "Bundle 'vim-scripts/c.vim'
 
 " html/xml/css
@@ -130,6 +130,20 @@ endif
 let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
 let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
+
+" Working with clang_complete
+if !exists('g:neocomplcache_force_omni_patterns')
+    let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objc = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.objcpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_use_library=1
+let g:clang_library_path="/usr/lib/"
 " }}}
 
 Bundle 'SirVer/ultisnips'
@@ -147,8 +161,8 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'sjl/gundo.vim'
 map <leader>gd :GundoToggle<CR>
 
-"Bundle 'majutsushi/tagbar'
-"nmap <leader>t :TagbarToggle<CR>
+Bundle 'majutsushi/tagbar'
+nmap <leader>t :TagbarToggle<CR>
 
 Bundle 'scrooloose/nerdtree'
 nmap <leader>e :NERDTreeToggle<CR>
