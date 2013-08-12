@@ -23,11 +23,13 @@ Bundle 'gmarik/vundle'
 
 " trying this 
 "Bundle "thinca/vim-quickrun"
+Bundle 'spolu/dwm.vim'
 
 " python
 Bundle 'davidhalter/jedi-vim'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'hdima/python-syntax'
 
 " javascript
 Bundle 'pangloss/vim-javascript'
