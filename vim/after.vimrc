@@ -12,10 +12,10 @@ if !hasmapto('<Plug>DWMRotateClockwise')
 endif
 
 if !hasmapto('<Plug>DWMNew')
-  nmap <S-N> <Plug>DWMNew
+  nmap <S-n> <Plug>DWMNew
 endif
 if !hasmapto('<Plug>DWMClose')
-  nmap <C-C> <Plug>DWMClose
+  nmap <C-m> <Plug>DWMClose
 endif
 if !hasmapto('<Plug>DWMFocus')
   nmap <C-@> <Plug>DWMFocus
