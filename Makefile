@@ -40,8 +40,6 @@ powerline: fonts submodule
 #vim: powerline submodule
 vim: submodule
 
-	mv ~/.vim ~/.vim_bakcup
-	mv ~/.vimrc ~/.vimrc_bakcup
 	ln $(LNSOPT) $(CURDIR)/vim ~/.vim
 	ln $(LNSOPT) $(CURDIR)/vim/.vimrc ~/.vimrc
 	vim -c "BundleInstall"
@@ -70,9 +68,12 @@ powerline-shell: submodule
 
 	cd plugins/powerline-shell; git checkout master; git pull ; python setup.py install
 
-bash: fonts dircolors-solarized powerline-shell
+#bash: fonts dircolors-solarized powerline-shell
+bash: 
 
 	ln $(LNSOPT) $(CURDIR)/bash/.bashrc ~/.bashrc
+	ln $(LNSOPT) $(CURDIR)/bash/.bash_profile ~/.bash_profile
+	ln $(LNSOPT) $(CURDIR)/bash/.inputrc ~/.inputrc
 
 ipython: powerline 
 
