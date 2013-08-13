@@ -102,21 +102,20 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/bin # Add RVM to PATH for scripting
 
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
-#PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 # powerline
 
-function _update_ps1() {
-   export PS1="$(powerline-bash.py)"
-}
-export PROMPT_COMMAND="_update_ps1"
+#function _update_ps1() {
+   #export PS1="$(powerline-bash.py)"
+#}
+#export PROMPT_COMMAND="_update_ps1"
 
 # dircolors-solarized : https://github.com/seebi/dircolors-solarized
-eval `dircolors ~/dircolors.256dark`
+#eval `dircolors ~/dircolors.256dark`
 
 TERM=screen-256color
