@@ -119,3 +119,5 @@ PATH=$PATH:$HOME/bin # Add RVM to PATH for scripting
 #eval `dircolors ~/dircolors.256dark`
 
 TERM=screen-256color
+
+export WORKON_HOME=~/envs
