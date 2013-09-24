@@ -121,3 +121,4 @@ PATH=$PATH:$HOME/bin # Add RVM to PATH for scripting
 TERM=screen-256color
 
 export WORKON_HOME=~/envs
+source /usr/local/bin/virtualenvwrapper.sh

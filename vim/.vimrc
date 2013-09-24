@@ -41,12 +41,12 @@ Bundle 'Rip-Rip/clang_complete'
 "Bundle 'vim-scripts/c.vim'
 
 " html/xml/css
-Bundle 'wavded/vim-stylus'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'mattn/zencoding-vim'
-Bundle 'tpope/vim-haml'
+Bundle 'mattn/emmet-vim'
 au BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 Bundle 'Glench/Vim-Jinja2-Syntax'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'othree/html5.vim'
 
 " syntax
 Bundle 'scrooloose/syntastic'

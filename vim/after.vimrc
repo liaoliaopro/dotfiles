@@ -11,9 +11,9 @@ if !hasmapto('<Plug>DWMRotateClockwise')
   nmap <C-.> <Plug>DWMRotateClockwise
 endif
 
-if !hasmapto('<Plug>DWMNew')
-  nmap <S-n> <Plug>DWMNew
-endif
+"if !hasmapto('<Plug>DWMNew')
+  "nmap <S-n> <Plug>DWMNew
+"endif
 if !hasmapto('<Plug>DWMClose')
   nmap <C-m> <Plug>DWMClose
 endif
