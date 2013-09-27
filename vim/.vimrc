@@ -41,9 +41,8 @@ Bundle 'Rip-Rip/clang_complete'
 "Bundle 'vim-scripts/c.vim'
 
 " html/xml/css
-Bundle 'plasticboy/vim-markdown'
 Bundle 'mattn/emmet-vim'
-au BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+Bundle 'plasticboy/vim-markdown'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'othree/html5.vim'
@@ -52,13 +51,13 @@ Bundle 'othree/html5.vim'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
-"let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby'], 'passive_filetypes': ['html', 'css', 'slim'] }
 
 " color
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
 
 " utility
+Bundle 'Townk/vim-autoclose'
 Bundle 'rking/ag.vim'
 map <silent> <leader>a :Ag<cr>
 
