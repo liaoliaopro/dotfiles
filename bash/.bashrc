@@ -122,3 +122,6 @@ TERM=screen-256color
 
 export WORKON_HOME=~/envs
 source /usr/local/bin/virtualenvwrapper.sh
+
+workon gmdev
+cd work

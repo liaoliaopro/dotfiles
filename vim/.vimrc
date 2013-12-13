@@ -22,7 +22,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " trying this 
-"Bundle "thinca/vim-quickrun"
 Bundle 'spolu/dwm.vim'
 
 " python
@@ -36,8 +35,9 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 
 " c/c++
+"Bundle 'Valloric/YouCompleteMe'
 "Bundle 'vim-scripts/a.vim'
-Bundle 'Rip-Rip/clang_complete'
+"Bundle 'Rip-Rip/clang_complete'
 "Bundle 'vim-scripts/c.vim'
 
 " html/xml/css
@@ -46,8 +46,9 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'othree/html5.vim'
+au BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
-" syntax
+" syntax check
 Bundle 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
@@ -57,7 +58,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
 
 " utility
-Bundle 'Townk/vim-autoclose'
+Bundle 'Raimondi/delimitMate'
 Bundle 'rking/ag.vim'
 map <silent> <leader>a :Ag<cr>
 
@@ -112,8 +113,7 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType python setlocal omnifunc=jedi#complete
+autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
@@ -128,9 +128,8 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 if !exists('g:neocomplcache_omni_functions')
     let g:neocomplcache_omni_functions = {}
 endif
-let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
 let g:jedi#popup_on_dot = 0
-let g:jedi#use_tabs_not_buffers = 0
 
 " Working with clang_complete
 if !exists('g:neocomplcache_force_omni_patterns')
@@ -148,6 +147,7 @@ let g:clang_library_path="/usr/lib/"
 " }}}
 
 Bundle 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<c-j>"
 Bundle 'JazzCore/neocomplcache-ultisnips'
 
 Bundle 'kana/vim-fakeclip'
