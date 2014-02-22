@@ -22,7 +22,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " trying this 
-Bundle 'spolu/dwm.vim'
+"Bundle 'spolu/dwm.vim'
 
 " python
 Bundle 'davidhalter/jedi-vim'
@@ -42,16 +42,18 @@ Bundle 'jelera/vim-javascript-syntax'
 
 " html/xml/css
 Bundle 'mattn/emmet-vim'
-Bundle 'plasticboy/vim-markdown'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'othree/html5.vim'
 au BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
 
 " syntax check
 Bundle 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_loc_list=2
+let g:syntastic_python_checkers=['flake8']
 
 " color
 Bundle 'altercation/vim-colors-solarized'
