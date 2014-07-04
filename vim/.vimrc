@@ -25,6 +25,20 @@ Plugin 'gmarik/Vundle.vim'
 " trying this 
 "Plugin 'spolu/dwm.vim'
 
+" go
+Plugin 'fatih/vim-go'
+au FileType go nmap <Leader>i <Plug>(go-info)
+"au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+"au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
 " python
 Plugin 'davidhalter/jedi-vim'
 Plugin 'hynek/vim-python-pep8-indent'
@@ -250,8 +264,9 @@ endif
 
 " support chinese display
 set encoding=utf-8
+set termencoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,gbk,default,ucs-bom,latin1
+set fileencodings=utf-8,gbk,default,ucs-bom,latin1,chinese,cp936
 set ambiwidth=double
 " "}}}
 
@@ -320,7 +335,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " include mswin.vim to make vim be compatible with MS editor's conventions
-"source $VIMRUNTIME/mswin.vim
+source $VIMRUNTIME/mswin.vim
 
 " format source code
 map <F12> :call FormartSrc()<CR>

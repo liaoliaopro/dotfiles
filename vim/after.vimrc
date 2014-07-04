@@ -27,3 +27,8 @@
 "if !hasmapto('<Plug>DWMShrinkMaster')
   "nmap <F3> <Plug>DWMShrinkMaster
 "endif
+
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+language messages zh_CN.utf-8
