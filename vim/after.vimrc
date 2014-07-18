@@ -28,7 +28,7 @@
   "nmap <F3> <Plug>DWMShrinkMaster
 "endif
 
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
+"source $VIMRUNTIME/delmenu.vim
+"source $VIMRUNTIME/menu.vim
 
-language messages zh_CN.utf-8
+"language messages zh_CN.utf-8

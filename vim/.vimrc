@@ -33,8 +33,8 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
-"au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>gd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
@@ -108,11 +108,11 @@ let g:minikufExplModSelTarget = 1
 
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'sjl/gundo.vim'
-map <leader>gd :GundoToggle<CR>
+"Plugin 'sjl/gundo.vim'
+"map <leader>gd :GundoToggle<CR>
 
 Plugin 'majutsushi/tagbar'
-nmap <leader>t :TagbarToggle<CR>
+nmap <leader>tb :TagbarToggle<CR>
 
 Plugin 'scrooloose/nerdtree'
 nmap <leader>e :NERDTreeToggle<CR>
