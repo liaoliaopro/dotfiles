@@ -287,8 +287,8 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "norma
 
 " Key mappings " {{{
 nnoremap <silent> <LocalLeader>rs :source ~/.vimrc<CR>
-nnoremap <silent> <LocalLeader>rt :tabnew ~/.vim/.vimrc<CR>
-nnoremap <silent> <LocalLeader>re :e ~/.vim/.vimrc<CR>
+nnoremap <silent> <LocalLeader>rt :tabnew ~/.vimrc<CR>
+nnoremap <silent> <LocalLeader>re :e ~/.vimrc<CR>
 nnoremap <silent> <LocalLeader>rd :e ~/.vim/ <CR>
 
 nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
