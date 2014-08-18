@@ -126,6 +126,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 workon gmdev
 cd work
 
-export GOPATH=~/go:~/work/gmwebapi
+export GOPATH=~/go:~/work/gmwebapi:~/work/gmnew/
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin

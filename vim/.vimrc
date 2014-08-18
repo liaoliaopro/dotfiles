@@ -28,19 +28,20 @@ Plugin 'gmarik/Vundle.vim'
 " go
 Plugin 'fatih/vim-go'
 au FileType go nmap <Leader>i <Plug>(go-info)
-"au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+"au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <leader>gd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
 " python
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'hdima/python-syntax'
@@ -63,6 +64,9 @@ Plugin 'othree/html5.vim'
 au BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
+
+" protobuf
+Plugin 'garyharan/vim-proto'
 
 " syntax check
 Plugin 'scrooloose/syntastic'
@@ -367,7 +371,7 @@ map <Leader>p :!google-chrome %<CR><CR>
 map <silent> <leader>x :!python "%"<cr>
 
 " css tidy
-autocmd filetype css setlocal equalprg=csstidy\ -\ --silent=true
+"autocmd filetype css setlocal equalprg=csstidy\ -\ --silent=true
 
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
