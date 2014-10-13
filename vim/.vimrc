@@ -31,7 +31,8 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <leader>tc <Plug>(go-coverage)
 "au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
@@ -51,7 +52,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 
 " c/c++
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 "Plugin 'vim-scripts/a.vim'
 "Plugin 'Rip-Rip/clang_complete'
 "Plugin 'vim-scripts/c.vim'
@@ -339,7 +340,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " include mswin.vim to make vim be compatible with MS editor's conventions
-source $VIMRUNTIME/mswin.vim
+"source $VIMRUNTIME/mswin.vim
 
 " format source code
 map <F12> :call FormartSrc()<CR>

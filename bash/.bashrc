@@ -123,9 +123,9 @@ TERM=screen-256color
 export WORKON_HOME=~/envs
 source /usr/local/bin/virtualenvwrapper.sh
 
-workon gmdev
-cd work
+#workon gmdev
+cd work/src/wajinzi.me
 
-export GOPATH=~/go:~/work/gmwebapi:~/work/gmnew/
+export GOPATH=~/go:~/work/
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin:~/go/bin:~/.vim-go:~/work/bin
