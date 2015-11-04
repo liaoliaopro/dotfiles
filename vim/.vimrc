@@ -31,7 +31,7 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <Leader>e <Plug>(go-rename)
+"au FileType go nmap <Leader>e <Plug>(go-rename)
 au FileType go nmap <leader>tc <Plug>(go-coverage)
 "au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
@@ -40,6 +40,9 @@ au FileType go nmap <leader>gd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+" shell
+Plugin 'jewes/Conque-Shell'
 
 " python
 "Plugin 'davidhalter/jedi-vim'
@@ -136,9 +139,9 @@ vmap <leader># :call NERDComment(0, "invert")<cr>
 "map <LocalLeader>d :call VimuxRunCommand(@v, 0)<CR>
 
 " fancy
-Plugin 'Lokaltog/vim-powerline'
-"Plugin 'Lokaltog/powerline'
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+Plugin 'bling/vim-airline'
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_section_y = '%{strftime("%c")}'
 
 " git
 Plugin 'airblade/vim-gitgutter'

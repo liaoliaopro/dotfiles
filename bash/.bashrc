@@ -126,6 +126,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 #workon gmdev
 cd work/src/wajinzi.me
 
-export GOPATH=~/go:~/work/
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH=$PATH:/usr/local/go/bin:~/go/bin:~/.vim-go:~/work/bin
+export PATH=$PATH:/usr/local/go/bin:~/.vim-go:~/work/bin
+[[ -s "/home/bidong/.gvm/scripts/gvm" ]] && source "/home/bidong/.gvm/scripts/gvm"
+gvm use go1.5
+gvm pkgset use --local
