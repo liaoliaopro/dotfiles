@@ -129,5 +129,11 @@ cd work/src/wajinzi.me
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$PATH:/usr/local/go/bin:~/.vim-go:~/work/bin
 [[ -s "/home/bidong/.gvm/scripts/gvm" ]] && source "/home/bidong/.gvm/scripts/gvm"
-gvm use go1.5
-gvm pkgset use --local
+export GOPATH="/home/bidong/work"
+gvm use go1.6
+#gvm pkgset use --local
+
+export NVM_DIR="/home/bidong/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"

@@ -40,6 +40,15 @@ au FileType go nmap <leader>gd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
+"let g:go_highlight_functions = 1
+"let g:go_highlight_methods = 1
+"let g:go_highlight_fields = 1
+"let g:go_highlight_types = 1
+"let g:go_highlight_operators = 1
+"let g:go_highlight_build_constraints = 1
+
 
 " shell
 Plugin 'jewes/Conque-Shell'
@@ -74,12 +83,14 @@ Plugin 'garyharan/vim-proto'
 
 " syntax check
 Plugin 'scrooloose/syntastic'
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=2
-let g:syntastic_python_checkers=['flake8']
+"let g:syntastic_enable_signs=1
+"let g:syntastic_auto_loc_list=2
+"let g:syntastic_python_checkers=['flake8']
+let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 
 " color
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'morhetz/gruvbox'
 Plugin 'tomasr/molokai'
 
 " utility
