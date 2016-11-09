@@ -9,24 +9,14 @@ endif
 " }}}
 
 
-" Vundle plugins {{{
+" Plugs {{{
 let mapleader = ","
-let maplocalleader = "\\"
-set nocompatible    " required
-filetype off        " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" vundle itself
-Plugin 'gmarik/Vundle.vim'
-
-" trying this 
-"Plugin 'spolu/dwm.vim'
+" set the runtime path to include plugins and initialize
+call plug#begin('~/.vim/plugged')
 
 " go
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
@@ -49,114 +39,91 @@ let g:go_list_type = "quickfix"
 "let g:go_highlight_operators = 1
 "let g:go_highlight_build_constraints = 1
 
-
-" shell
-Plugin 'jewes/Conque-Shell'
-
 " python
-"Plugin 'davidhalter/jedi-vim'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'hdima/python-syntax'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'hdima/python-syntax'
 
 " javascript
-Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
 
 " c/c++
-Plugin 'Valloric/YouCompleteMe'
-"Plugin 'vim-scripts/a.vim'
-"Plugin 'Rip-Rip/clang_complete'
-"Plugin 'vim-scripts/c.vim'
+Plug 'Valloric/YouCompleteMe'
 
 " html/xml/css
-Plugin 'mattn/emmet-vim'
-Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'othree/html5.vim'
+Plug 'mattn/emmet-vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'othree/html5.vim'
 au BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
-Plugin 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
 " protobuf
-Plugin 'garyharan/vim-proto'
+Plug 'uarun/vim-protobuf'
 
 " syntax check
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 "let g:syntastic_enable_signs=1
 "let g:syntastic_auto_loc_list=2
 "let g:syntastic_python_checkers=['flake8']
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 
 " color
-"Plugin 'altercation/vim-colors-solarized'
-Plugin 'morhetz/gruvbox'
-Plugin 'tomasr/molokai'
+"Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
 
 " utility
-Plugin 'ervandew/supertab'
-Plugin 'Raimondi/delimitMate'
-Plugin 'rking/ag.vim'
+Plug 'ervandew/supertab'
+Plug 'Raimondi/delimitMate'
+Plug 'rking/ag.vim'
 map <silent> <leader>a :Ag<cr>
 
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 if exists(":Tabularize")
     nmap <leader>a= :Tabularize /=<CR>
     vmap <leader>a= :Tabularize /=<CR>
     nmap <leader>a: :Tabularize /:\zs<CR>
     vmap <leader>a: :Tabularize /:\zs<CR>
 endif
-Plugin 'kien/ctrlp.vim'
-Plugin 'Spaceghost/vim-matchit'
-Plugin 'YankRing.vim'
-let g:yankring_replace_n_pkey = '<leader>['
-let g:yankring_replace_n_nkey = '<leader>]'
-let g:yankring_history_dir = '~/.vim/tmp'
-nmap <leader>y :YRShow<cr>
+Plug 'kien/ctrlp.vim'
+Plug 'Spaceghost/vim-matchit'
 
-Plugin 'honza/vim-snippets'
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips' 
+Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<c-j>"
 
-Plugin 'kana/vim-fakeclip'
-Plugin 'fholgado/minibufexpl.vim'
+"Plug 'kana/vim-fakeclip'
+Plug 'fholgado/minibufexpl.vim'
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:minikufExplModSelTarget = 1
 
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'terryma/vim-multiple-cursors'
-"Plugin 'sjl/gundo.vim'
-"map <leader>gd :GundoToggle<CR>
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'terryma/vim-multiple-cursors'
 
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 nmap <leader>tb :TagbarToggle<CR>
 
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 nmap <leader>e :NERDTreeToggle<CR>
 " Disable the scrollbars (NERDTree)
 set guioptions-=r
 set guioptions-=L
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 nmap <leader># :call NERDComment(0, "invert")<cr>
 vmap <leader># :call NERDComment(0, "invert")<cr>
 
-" os
-"Plugin 'zaiste/tmux.vim'
-"Plugin 'benmills/vimux'
-"map <Leader>rp :VimuxPromptCommand<CR>
-"map <Leader>rl :VimuxRunLastCommand<CR>
-"map <LocalLeader>d :call VimuxRunCommand(@v, 0)<CR>
-
 " fancy
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline_section_y = '%{strftime("%c")}'
 
 " git
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 nmap <leader>g :Ggrep
 " ,f for global git serach for word under the cursor (with highlight)
 nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
@@ -165,9 +132,8 @@ vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "
 
 " misc
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" All of your Plugs must be added before the following line
+call plug#end()
 " }}}
 
 
@@ -177,7 +143,8 @@ set history=256  " Number of things to remember in history.
 set autowrite  " Writes on make/shell commands
 set autoread  
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
-set clipboard+=unnamed  " Yanks go on clipboard instead.
+"set clipboard+=unnamedplus  " Yanks go on clipboard instead.
+"set clipboard=exclude:.*
 set pastetoggle=<F10> "  toggle between paste and normal: for 'safer' pasting from keyboard
 set tags=./tags;$HOME " walk directory tree upto $HOME looking for tags
 " Modeline
@@ -274,7 +241,7 @@ if has('gui_running')
     "set background=light
     "colo solarized
 else
-    set t_Co=256                  " let termianl support 16 colors.
+    "set t_Co=256                  " let termianl support 16 colors.
     "set t_Co=16                  " let termianl support 256 colors.
     colo molokai
     "set background=dark
@@ -321,9 +288,9 @@ map <silent> <F9> :set invlist<CR>
 map <silent> <LocalLeader>2h :runtime! syntax/2html.vim<CR> 
 
 " Yank content in OS's clipboard. `o` stands for "OS's Clipoard".
-vnoremap <leader>yo "*y
+"vnoremap <leader>yo "*y
 " Paste content from OS's clipboard
-nnoremap <leader>po "*p
+"nnoremap <leader>po "*p
 
 " clear highlight after search
 noremap <silent><Leader>/ :nohls<CR>
