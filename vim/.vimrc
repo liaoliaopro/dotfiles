@@ -4,7 +4,7 @@
 
 " Load external configuration before anything else {{{
 if filereadable(expand("~/.vim/before.vim"))
-    source ~/.vim/before.vimrc
+    source ~/.vim/before.vim
 endif
 " }}}
 
@@ -26,7 +26,7 @@ endif
 
 " Load addidional configuration (ie to overwrite shorcuts) {{{
 if filereadable(expand("~/.vim/after.vim"))
-    source ~/.vim/after.vimrc
+    source ~/.vim/after.vim
 endif
 " }}}
 

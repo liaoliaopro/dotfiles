@@ -29,14 +29,14 @@ set guioptions-=L
 
 " Colorscheme
 set background=dark
-colorscheme peaksea
+"colorscheme peaksea
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>e :e! ~/.vimrc<cr>
-autocmd! bufwritepost ~/.vimrc source ~/.vimrc
+"map <leader>e :e! ~/.vimrc<cr>
+"autocmd! bufwritepost ~/.vimrc source ~/.vimrc
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

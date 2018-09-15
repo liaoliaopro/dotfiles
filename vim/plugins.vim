@@ -86,16 +86,21 @@ nmap <leader>tb :TagbarToggle<CR>
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 nmap <leader>e :NERDTreeToggle<CR>
+"let g:NERDTreeWinPos = "right"
+let NERDTreeShowHidden=0
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let g:NERDTreeWinSize=35
 " Disable the scrollbars (NERDTree)
 set guioptions-=r
 set guioptions-=L
+
 Plug 'scrooloose/nerdcommenter'
 nmap <leader># :call NERDComment(0, "invert")<cr>
 vmap <leader># :call NERDComment(0, "invert")<cr>
 
 " fancy
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " git
 Plug 'airblade/vim-gitgutter'
