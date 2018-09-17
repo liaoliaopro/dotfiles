@@ -16,12 +16,12 @@ if filereadable(expand("~/.vim/filetypes.vim"))
     source ~/.vim/filetypes.vim
 endif
 
-if filereadable(expand("~/.vim/plugins.vim"))
-    source ~/.vim/plugins.vim
-endif
-
 if filereadable(expand("~/.vim/extended.vim"))
     source ~/.vim/extended.vim
+endif
+
+if filereadable(expand("~/.vim/plugins.vim"))
+    source ~/.vim/plugins.vim
 endif
 
 " Load addidional configuration (ie to overwrite shorcuts) {{{

@@ -29,7 +29,7 @@ set guioptions-=L
 
 " Colorscheme
 set background=dark
-"colorscheme peaksea
+colorscheme desert
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -43,11 +43,11 @@ set background=dark
 " => Turn persistent undo on 
 "    means that you can undo even when you close a buffer/VIM
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-try
-    set undodir=~/.vim/temp/undo
-    set undofile
-catch
-endtry
+"try
+    "set undodir=~/.vim/temp/undo
+    "set undofile
+"catch
+"endtry
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

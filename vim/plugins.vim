@@ -51,6 +51,7 @@ let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 " color
 Plug 'morhetz/gruvbox'
 "Plug 'tomasr/molokai'
+"Plug 'dracula/vim', { 'as': 'dracula' }
 
 " utility
 Plug 'ervandew/supertab'
@@ -71,12 +72,17 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<c-j>"
 
+" fancy
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+
+"Plug 'Shougo/denite.nvim'
 "Plug 'kana/vim-fakeclip'
 Plug 'fholgado/minibufexpl.vim'
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:minikufExplModSelTarget = 1
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:minikufExplModSelTarget = 1
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'terryma/vim-multiple-cursors'
@@ -86,30 +92,14 @@ nmap <leader>tb :TagbarToggle<CR>
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 nmap <leader>e :NERDTreeToggle<CR>
-"let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=0
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeWinSize=35
-" Disable the scrollbars (NERDTree)
-set guioptions-=r
-set guioptions-=L
 
 Plug 'scrooloose/nerdcommenter'
 nmap <leader># :call NERDComment(0, "invert")<cr>
 vmap <leader># :call NERDComment(0, "invert")<cr>
 
-" fancy
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-nmap <leader>g :Ggrep
-" ,f for global git serach for word under the cursor (with highlight)
-nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
-" same in visual mode
-vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
 
 " misc
 Plug 'chrisbra/csv.vim'
