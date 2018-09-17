@@ -52,7 +52,7 @@ let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 " color
 Plug 'morhetz/gruvbox'
 "Plug 'tomasr/molokai'
-Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'dracula/vim', { 'as': 'dracula' }
 
 " utility
 Plug 'ervandew/supertab'
@@ -74,11 +74,10 @@ Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<c-j>"
 
 " fancy
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 
 "Plug 'Shougo/denite.nvim'
-"Plug 'kana/vim-fakeclip'
 Plug 'fholgado/minibufexpl.vim'
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1

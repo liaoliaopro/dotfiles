@@ -2,10 +2,9 @@
 
 vim:
 
-	ln $(LNSOPT) $(CURDIR)/vim ~/.vim
-	ln $(LNSOPT) $(CURDIR)/vim/.vimrc ~/.vimrc
-	ln $(LNSOPT) $(CURDIR)/vim/ ~/.config/nvim
-	ln $(LNSOPT) $(CURDIR)/vim/.vimrc ~/.config/nvim/init.vim
+	ln -s $(LNSOPT) $(CURDIR)/vim ~/.vim
+	ln -s $(LNSOPT) $(CURDIR)/vim/init.vim ~/.vimrc
+	ln -s $(LNSOPT) $(CURDIR)/vim/ ~/.config/nvim
 
 git:
 
