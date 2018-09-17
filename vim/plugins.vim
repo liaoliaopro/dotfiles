@@ -9,15 +9,33 @@ call plug#begin('~/.vim/plugged')
 
 
 " go
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 "let g:go_highlight_functions = 1
 "let g:go_highlight_methods = 1
 "let g:go_highlight_fields = 1
 "let g:go_highlight_types = 1
 "let g:go_highlight_operators = 1
 "let g:go_highlight_build_constraints = 1
+
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+au FileType go nmap <leader>t <Plug>(go-test)
+"au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <leader>tc <Plug>(go-coverage)
+"au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <leader>gd <Plug>(go-def)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+" Split or join struct
+Plug 'AndrewRadev/splitjoin.vim'
 
 " python
 Plug 'hynek/vim-python-pep8-indent'
@@ -44,8 +62,15 @@ Plug 'uarun/vim-protobuf'
 
 " syntax check
 Plug 'scrooloose/syntastic'
-"let g:syntastic_enable_signs=1
-"let g:syntastic_auto_loc_list=2
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 "let g:syntastic_python_checkers=['flake8']
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 
@@ -107,8 +132,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'chrisbra/csv.vim'
 
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All of your Plugs must be added before the following line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction

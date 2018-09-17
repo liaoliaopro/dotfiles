@@ -389,6 +389,13 @@ inoremap $4 {<esc>o}<esc>O
 inoremap $q ''<esc>i
 inoremap $e ""<esc>i
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Quickfix
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fast editing and reloading of vimrc configs
