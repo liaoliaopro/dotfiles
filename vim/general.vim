@@ -39,6 +39,8 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
+" Writes on make/shell commands
+set autowrite
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -88,6 +90,9 @@ set hid
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
+" Enable cursor line
+set cursorline
+
 " Ignore case when searching
 set ignorecase
 
@@ -117,14 +122,25 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Properly disable sound on errors on MacVim
-if has("gui_macvim")
-    autocmd GUIEnter * set vb t_vb=
-endif
+" Disable both bell and visual flash
+autocmd GUIEnter * set vb t_vb=
+autocmd VimEnter * set vb t_vb=
 
+" Fold setttings
+set foldenable " Turn on folding
+set foldmethod=marker " Fold on the marker
+set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds 
 
-" Add a bit extra margin to the left
-set foldcolumn=1
+" Split window
+set splitbelow
+set splitright
+
+" Disable scrollbars (real hackers don't use scrollbars for navigation!)
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -148,6 +164,10 @@ endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,gbk,default,ucs-bom,latin1,chinese,cp936
+set ambiwidth=double
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -293,6 +313,41 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Extra Editing mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" clear highlight after search
+noremap <silent><Leader>/ :nohls<CR>
+
+nmap <silent> <leader>hh :set invhlsearch<CR>
+nmap <silent> <leader>ll :set invlist<CR>
+nmap <silent> <leader>nn :set invnumber<CR>
+nmap <silent> <leader>pp :set invpaste<CR>
+nmap <silent> <leader>ii :set invrelativenumber<CR>
+
+" Easy splitted window navigation
+noremap <C-h>  <C-w>h
+noremap <C-j>  <C-w>j
+noremap <C-k>  <C-w>k
+noremap <C-l>  <C-w>l
+
+" Easy buffer navigation
+noremap <leader>bp :bprevious<cr>
+noremap <leader>bn :bnext<cr>
+noremap <leader>bd :bdelete<cr>
+
+" Splits ,v and ,h to open new splits (vertical and horizontal)
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>h <C-w>s<C-w>j
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" include mswin.vim to make vim be compatible with MS editor's conventions
+"source $VIMRUNTIME/mswin.vim
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pressing ,ss will toggle and untoggle spell checking
@@ -319,6 +374,61 @@ map <leader>x :e ~/buffer.md<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+
+" Bash like keys for the command line
+cnoremap <C-A>		<Home>
+cnoremap <C-E>		<End>
+cnoremap <C-K>		<C-U>
+
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
+
+" Map ½ to something useful
+map ½ $
+cmap ½ $
+imap ½ $
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Ack searching and cope displaying
+"    requires ack.vim - it's much better than vimgrep/grep
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use the the_silver_searcher if possible (much faster than Ack)
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --smart-case'
+endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General abbreviations
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Parenthesis/bracket
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+vnoremap $1 <esc>`>a)<esc>`<i(<esc>
+vnoremap $2 <esc>`>a]<esc>`<i[<esc>
+vnoremap $3 <esc>`>a}<esc>`<i{<esc>
+vnoremap $$ <esc>`>a"<esc>`<i"<esc>
+vnoremap $q <esc>`>a'<esc>`<i'<esc>
+vnoremap $e <esc>`>a"<esc>`<i"<esc>
+
+" Map auto complete of (, ", ', [
+inoremap $1 ()<esc>i
+inoremap $2 []<esc>i
+inoremap $3 {}<esc>i
+inoremap $4 {<esc>o}<esc>O
+inoremap $q ''<esc>i
+inoremap $e ""<esc>i
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Fast editing and reloading of vimrc configs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>re :e! ~/.vimrc<cr>
+autocmd! bufwritepost ~/.vimrc source ~/.vimrc
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

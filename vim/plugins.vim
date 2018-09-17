@@ -2,10 +2,11 @@
 " author: bidong <liaoliaopro@gmail.com>
 
 
-" Plugs {{{
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set the runtime path to include plugins and initialize
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
+
 
 " go
 Plug 'fatih/vim-go'
@@ -51,7 +52,7 @@ let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 " color
 Plug 'morhetz/gruvbox'
 "Plug 'tomasr/molokai'
-"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " utility
 Plug 'ervandew/supertab'
@@ -73,16 +74,16 @@ Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<c-j>"
 
 " fancy
-"Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 
 "Plug 'Shougo/denite.nvim'
 "Plug 'kana/vim-fakeclip'
 Plug 'fholgado/minibufexpl.vim'
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:minikufExplModSelTarget = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:minikufExplModSelTarget = 1
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'terryma/vim-multiple-cursors'
@@ -104,7 +105,9 @@ Plug 'tpope/vim-fugitive'
 " misc
 Plug 'chrisbra/csv.vim'
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All of your Plugs must be added before the following line
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
-" }}}
 
