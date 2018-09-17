@@ -16,6 +16,6 @@ if filereadable(expand("~/.vim/plugins.vim"))
 endif
 
 " Load addidional configuration (ie to overwrite shorcuts)
-if filereadable(expand("~/.vim/after.vimrc"))
-    source ~/.vim/after.vimrc
+if filereadable(expand("~/.vim/after.vim"))
+    source ~/.vim/after.vim
 endif
