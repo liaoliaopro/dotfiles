@@ -51,8 +51,10 @@ let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 
 " color
 Plug 'morhetz/gruvbox'
-"Plug 'tomasr/molokai'
-"Plug 'dracula/vim', { 'as': 'dracula' }
+let g:gruvbox_italic=1
+
+Plug 'tomasr/molokai'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " utility
 Plug 'ervandew/supertab'
