@@ -1,1 +1,1 @@
-colo dracula
+colo gruvbox

@@ -147,6 +147,7 @@ set guioptions-=L
 if !exists("g:syntax_on")
     syntax enable
 endif
+set background=dark
 
 " Enable true color terminal
 set termguicolors
