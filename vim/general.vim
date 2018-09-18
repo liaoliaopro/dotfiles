@@ -392,9 +392,9 @@ inoremap $e ""<esc>i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Quickfix
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
+"map <C-n> :cnext<CR>
+"map <C-m> :cprevious<CR>
+"nnoremap <leader>a :cclose<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
