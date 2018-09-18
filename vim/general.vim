@@ -130,8 +130,8 @@ set foldlevel=100 " Don't autofold anything (but I can still fold manually)
 set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds 
 
 " Split window
-set splitbelow
-set splitright
+"set splitbelow
+"set splitright
 
 " Disable scrollbars (real hackers don't use scrollbars for navigation!)
 set guioptions-=r
