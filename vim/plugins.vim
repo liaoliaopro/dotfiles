@@ -7,6 +7,22 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+" autocomplete
+if has("win32")
+    if has('nvim')
+      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+      Plug 'Shougo/deoplete.nvim'
+      Plug 'roxma/nvim-yarp'
+      Plug 'roxma/vim-hug-neovim-rpc'
+    endif
+    let g:deoplete#enable_at_startup = 1
+else
+    Plug 'Valloric/YouCompleteMe'
+    " disable preview window while autocomplete
+    set completeopt-=preview
+    let g:ycm_add_preview_to_completeopt = 0
+endif
 
 " go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -45,12 +61,6 @@ Plug 'hdima/python-syntax'
 " javascript
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
-
-" c/c++
-Plug 'Valloric/YouCompleteMe'
-" disable preview window while autocomplete
-set completeopt-=preview
-let g:ycm_add_preview_to_completeopt = 0
 
 " html/xml/css
 Plug 'mattn/emmet-vim'
