@@ -150,7 +150,9 @@ endif
 set background=dark
 
 " Enable true color terminal
-set termguicolors
+if has("gui_running")
+    set termguicolors
+endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8

@@ -48,6 +48,9 @@ Plug 'othree/yajs.vim'
 
 " c/c++
 Plug 'Valloric/YouCompleteMe'
+" disable preview window while autocomplete
+set completeopt-=preview
+let g:ycm_add_preview_to_completeopt = 0
 
 " html/xml/css
 Plug 'mattn/emmet-vim'
