@@ -54,9 +54,7 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 Plug 'AndrewRadev/splitjoin.vim'
 
 " python
-Plug 'hynek/vim-python-pep8-indent'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'hdima/python-syntax'
+Plug 'google/yapf'
 
 " javascript
 Plug 'pangloss/vim-javascript'
@@ -70,8 +68,8 @@ au BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expan
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
-" protobuf
-Plug 'uarun/vim-protobuf'
+" extend % to support jump between html tag
+Plug 'vim-scripts/matchit.zip'
 
 " syntax check
 Plug 'scrooloose/syntastic'
@@ -87,6 +85,9 @@ let g:syntastic_check_on_wq = 0
 "let g:syntastic_python_checkers=['flake8']
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 
+" asynchronous lint engine
+Plug 'dense-analysis/ale'
+
 " color
 Plug 'morhetz/gruvbox'
 let g:gruvbox_italic=1
@@ -94,21 +95,23 @@ let g:gruvbox_italic=1
 Plug 'tomasr/molokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" utility
-Plug 'ervandew/supertab'
+" edit utility
 Plug 'Raimondi/delimitMate'
 Plug 'mileszs/ack.vim'
 
-Plug 'godlygeek/tabular'
-if exists(":Tabularize")
-    nmap <leader>a= :Tabularize /=<CR>
-    vmap <leader>a= :Tabularize /=<CR>
-    nmap <leader>a: :Tabularize /:\zs<CR>
-    vmap <leader>a: :Tabularize /:\zs<CR>
-endif
-Plug 'kien/ctrlp.vim'
-Plug 'Spaceghost/vim-matchit'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 
+Plug 'junegunn/vim-easy-align'
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips' 
 Plug 'honza/vim-snippets'
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -141,8 +144,11 @@ vmap <leader># :call NERDComment(0, "invert")<cr>
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-" misc
+" misc: csv/protobuf/toml/yamml
 Plug 'chrisbra/csv.vim'
+Plug 'uarun/vim-protobuf'
+Plug 'cespare/vim-toml'
+Plug 'stephpy/vim-yaml'
 
 
 
