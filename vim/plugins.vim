@@ -33,6 +33,9 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 " fuzzy finder
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " asynchronous lint engine
 Plug 'dense-analysis/ale'
@@ -90,6 +93,9 @@ Plug 'stephpy/vim-yaml'
 
 " fancy start screen
 Plug 'mhinz/vim-startify'
+
+" window resizer
+Plug 'simeji/winresizer'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All of your Plugs must be added before the following line
