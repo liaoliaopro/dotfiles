@@ -7,54 +7,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-" autocomplete
-if has("win32")
-    if has('nvim')
-      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    else
-      Plug 'Shougo/deoplete.nvim'
-      Plug 'roxma/nvim-yarp'
-      Plug 'roxma/vim-hug-neovim-rpc'
-    endif
-    let g:deoplete#enable_at_startup = 1
-else
-    Plug 'Valloric/YouCompleteMe'
-    " disable preview window while autocomplete
-    set completeopt-=preview
-    let g:ycm_add_preview_to_completeopt = 0
-endif
-
 " go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-"let g:go_highlight_functions = 1
-"let g:go_highlight_methods = 1
-"let g:go_highlight_fields = 1
-"let g:go_highlight_types = 1
-"let g:go_highlight_operators = 1
-"let g:go_highlight_build_constraints = 1
-
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-au FileType go nmap <leader>t <Plug>(go-test)
-"au FileType go nmap <Leader>e <Plug>(go-rename)
-au FileType go nmap <leader>tc <Plug>(go-coverage)
-"au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-au FileType go nmap <leader>gd <Plug>(go-def)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-
-" Split or join struct
-Plug 'AndrewRadev/splitjoin.vim'
-
-" python
-Plug 'google/yapf'
 
 " javascript
 Plug 'pangloss/vim-javascript'
@@ -68,22 +25,14 @@ au BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expan
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
-" extend % to support jump between html tag
-Plug 'vim-scripts/matchit.zip'
+" auto complete
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
-" syntax check
-Plug 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" split or join struct
+Plug 'AndrewRadev/splitjoin.vim'
 
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-"let g:syntastic_python_checkers=['flake8']
-let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
+" fuzzy finder
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 " asynchronous lint engine
 Plug 'dense-analysis/ale'
@@ -96,42 +45,31 @@ Plug 'tomasr/molokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " edit utility
+Plug 'andymass/vim-matchup'
 Plug 'Raimondi/delimitMate'
 Plug 'mileszs/ack.vim'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
-Plug 'junegunn/vim-easy-align'
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
 Plug 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
 Plug 'SirVer/ultisnips' 
-Plug 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger="<c-j>"
 
 " fancy
 Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 
-"Plug 'Shougo/denite.nvim'
 Plug 'fholgado/minibufexpl.vim'
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:minikufExplModSelTarget = 1
 
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'terryma/vim-multiple-cursors'
-
-Plug 'majutsushi/tagbar'
-nmap <leader>tb :TagbarToggle<CR>
+Plug 'Yggdroot/indentLine'
+Plug 'mg979/vim-visual-multi'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 nmap <leader>e :NERDTreeToggle<CR>
@@ -150,7 +88,8 @@ Plug 'uarun/vim-protobuf'
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 
-
+" fancy start screen
+Plug 'mhinz/vim-startify'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All of your Plugs must be added before the following line
@@ -170,3 +109,101 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin key mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Using CoC 
+" ----------------------------------------------------------
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+
+
+" Using CocList
+" ----------------------------------------------------------
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
