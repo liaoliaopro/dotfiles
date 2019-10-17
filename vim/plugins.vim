@@ -15,7 +15,6 @@ let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 
 " javascript
 Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
 
 " html/xml/css
 Plug 'mattn/emmet-vim'
@@ -24,6 +23,7 @@ Plug 'othree/html5.vim'
 au BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
+Plug 'mxw/vim-jsx'
 
 " auto complete
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
@@ -33,7 +33,20 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 " fuzzy finder
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+let g:Lf_ShowRelativePath = 0
+let g:Lf_HideHelp = 1
+let g:Lf_PreviewResult = {'Function':0, 'Colorscheme':1}
 let g:Lf_CommandMap = {'<C-K>': ['<Up>'], '<C-J>': ['<Down>']}
+let g:Lf_NormalMap = {
+    \ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],
+    \ "Buffer": [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<CR>']],
+    \ "Mru":    [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<CR>']],
+    \ "Tag":    [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<CR>']],
+    \ "BufTag":    [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<CR>']],
+    \ "Function":    [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<CR>']],
+    \ "Colorscheme":    [["<ESC>", ':exec g:Lf_py "colorschemeExplManager.quit()"<CR>']],
+    \ }
+
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
@@ -50,7 +63,6 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " edit utility
 Plug 'andymass/vim-matchup'
 Plug 'Raimondi/delimitMate'
-Plug 'mileszs/ack.vim'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -150,10 +162,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -161,21 +169,6 @@ augroup mygroup
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Create mappings for function text object, requires document symbols feature of languageserver.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
 
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
 nmap <silent> <C-d> <Plug>(coc-range-select)
@@ -195,21 +188,20 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 
 
-" Using CocList
+" Using Leaderf
 " ----------------------------------------------------------
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" search word under cursor, the pattern is treated as regex, and enter normal mode directly
+noremap <C-F>f :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" search word under cursor, the pattern is treated as regex,
+" append the result to previous search results.
+noremap <C-F>g :<C-U><C-R>=printf("Leaderf! rg --append -e %s ", expand("<cword>"))<CR>
+" search word under cursor literally only in current buffer
+noremap <C-F>b :<C-U><C-R>=printf("Leaderf! rg -F --current-buffer -e %s ", expand("<cword>"))<CR>
+" search word under cursor literally in all listed buffers
+noremap <C-F>d :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand("<cword>"))<CR>
+" recall last search. If the result window is closed, reopen it.
+noremap <C-F>t :<C-U>Leaderf! rg --recall<CR>
+
+noremap <F2> :LeaderfFunction!<cr>
+noremap <F3> :LeaderfBufTag!<cr>
+noremap <leader>m :LeaderfMru<cr>

@@ -1,13 +1,14 @@
 {
-  "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": [
-        "go.mod"
-      ],
-      "filetypes": [
-        "go"
-      ]
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": [
+                "go.mod"
+            ],
+            "filetypes": [
+                "go"
+            ]
+        }
     }
-  }
 }
