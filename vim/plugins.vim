@@ -73,10 +73,6 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 Plug 'SirVer/ultisnips' 
 
-" fancy
-Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-
 Plug 'fholgado/minibufexpl.vim'
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
@@ -102,6 +98,11 @@ Plug 'chrisbra/csv.vim'
 Plug 'uarun/vim-protobuf'
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
+
+" fancy
+Plug 'vim-airline/vim-airline'
+let g:airline#extensions#coc#enabled = 1
+"Plug 'vim-airline/vim-airline-themes'
 
 " fancy start screen
 Plug 'mhinz/vim-startify'
@@ -185,7 +186,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 
 
 " Using Leaderf
