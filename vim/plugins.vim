@@ -52,6 +52,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " asynchronous lint engine
 Plug 'dense-analysis/ale'
+let g:ale_linters_explicit = 1
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:airline#extensions#ale#enabled = 1
 
 " color
 Plug 'morhetz/gruvbox'
@@ -61,6 +69,9 @@ Plug 'tomasr/molokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " edit utility
+Plug 'justinmk/vim-dirvish'
+nmap <leader>e :Dirvish<CR>
+
 Plug 'andymass/vim-matchup'
 Plug 'Raimondi/delimitMate'
 
@@ -82,12 +93,7 @@ let g:minikufExplModSelTarget = 1
 Plug 'Yggdroot/indentLine'
 Plug 'mg979/vim-visual-multi'
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-nmap <leader>e :NERDTreeToggle<CR>
-
 Plug 'scrooloose/nerdcommenter'
-nmap <leader># :call NERDComment(0, "invert")<cr>
-vmap <leader># :call NERDComment(0, "invert")<cr>
 
 " git
 Plug 'airblade/vim-gitgutter'

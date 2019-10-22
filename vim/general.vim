@@ -135,6 +135,9 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 
+" Always show sign column
+set signcolumn=yes
+
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
