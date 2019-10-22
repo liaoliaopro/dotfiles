@@ -60,6 +60,10 @@ let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:airline#extensions#ale#enabled = 1
+" not work here! check coc-python format
+let g:ale_fixers = {
+    \ 'python': ['yapf', 'isort'],
+    \ }
 
 " color
 Plug 'morhetz/gruvbox'
@@ -192,6 +196,11 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using coc-snippets
+" ----------------------------------------------------------
+" Use <C-j> for both expand and jump (make expand higher priority.)
+"imap <C-l> <Plug>(coc-snippets-expand)
 
 
 " Using Leaderf
