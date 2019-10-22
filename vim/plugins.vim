@@ -87,6 +87,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 Plug 'SirVer/ultisnips' 
+Plug 'honza/vim-snippets'
 
 Plug 'fholgado/minibufexpl.vim'
 let g:miniBufExplMapWindowNavVim = 1
@@ -199,7 +200,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using coc-snippets
 " ----------------------------------------------------------
-" Use <C-j> for both expand and jump (make expand higher priority.)
+" Use <C-l> for expand
 "imap <C-l> <Plug>(coc-snippets-expand)
 
 
