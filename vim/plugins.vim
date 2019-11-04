@@ -24,6 +24,8 @@ au BufNewFile,BufReadPost *.html setl shiftwidth=2 tabstop=2 softtabstop=2 expan
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 Plug 'mxw/vim-jsx'
+Plug 'posva/vim-vue'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " auto complete
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
@@ -64,6 +66,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_fixers = {
     \ 'python': ['yapf', 'isort'],
     \ }
+let g:ale_fix_on_save = 1
 
 " color
 Plug 'morhetz/gruvbox'
@@ -109,6 +112,9 @@ Plug 'chrisbra/csv.vim'
 Plug 'uarun/vim-protobuf'
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
+
+" text objects
+Plug 'jeetsukumaran/vim-pythonsense'
 
 " fancy
 Plug 'vim-airline/vim-airline'

@@ -1,4 +1,5 @@
 {
+    "diagnostic.signOffset": 9999999,
     "coc.preferences.currentFunctionSymbolAutoUpdate": true,
     "languageserver": {
         "golang": {
