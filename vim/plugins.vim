@@ -35,6 +35,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 " fuzzy finder
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+"let g:Lf_GtagsAutoGenerate = 1
 let g:Lf_ShowRelativePath = 0
 let g:Lf_HideHelp = 1
 let g:Lf_PreviewResult = {'Function':0, 'Colorscheme':1}
@@ -224,6 +225,6 @@ noremap <C-F>d :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand(
 " recall last search. If the result window is closed, reopen it.
 noremap <C-F>t :<C-U>Leaderf! rg --recall<CR>
 
-noremap <F2> :LeaderfFunction!<cr>
-noremap <F3> :LeaderfBufTag!<cr>
+noremap <F2> :LeaderfFunction<cr>
+noremap <F3> :LeaderfBufTag<cr>
 noremap <leader>m :LeaderfMru<cr>
