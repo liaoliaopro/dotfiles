@@ -5,7 +5,7 @@
         "golang": {
             "command": "gopls",
             "rootPatterns": [
-                "go.mod"
+                "go.mod",".git"
             ],
             "filetypes": [
                 "go"

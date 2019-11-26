@@ -119,6 +119,12 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" Better display for messages
+set cmdheight=2
+
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+
 " Disable both bell and visual flash
 autocmd GUIEnter * set vb t_vb=
 autocmd VimEnter * set vb t_vb=
@@ -137,6 +143,9 @@ set guioptions-=L
 
 " Always show sign column
 set signcolumn=yes
+
+" Show number
+set number
 
 """"""""""""""""""""""""""""""
 " => Status line
