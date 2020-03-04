@@ -1,6 +1,9 @@
 {
     "diagnostic.signOffset": 9999999,
     "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "rust"
+    ],
     "languageserver": {
         "golang": {
             "command": "gopls",

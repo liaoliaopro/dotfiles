@@ -13,6 +13,9 @@ let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 
+" rust
+Plug 'rust-lang/rust.vim'
+
 " javascript
 Plug 'pangloss/vim-javascript'
 
@@ -28,7 +31,7 @@ Plug 'posva/vim-vue'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " auto complete
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " split or join struct
 Plug 'AndrewRadev/splitjoin.vim'
@@ -249,9 +252,11 @@ noremap <F2> :LeaderfFunction<cr>
 " F3 tag list
 noremap <F3> :LeaderfBufTag<cr>
 " F4
-"TODO
+noremap <F4> :call Build()<CR>
 " F5 run
-noremap<F5> :call Execute()<CR>
+noremap <F5> :call Execute()<CR>
+" F6 run
+noremap <F6> :call Test()<CR>
 
 " <leader>f All files
 " <leader>m MRU files 
@@ -260,6 +265,26 @@ noremap <leader>m :LeaderfMru<cr>
 func! Execute()
     if &filetype == 'python'
         call CocActionAsync('runCommand','python.execInTerminal')
+    elseif &filetype == 'rust'
+        :Crun
     elseif &filetype == 'go'
+        :GoRun
+    endif
+endfunc
+
+func! Build()
+    if &filetype == 'python'
+    elseif &filetype == 'rust'
+    elseif &filetype == 'go'
+        :GoBuild
+    endif
+endfunc
+
+func! Test()
+    if &filetype == 'python'
+    elseif &filetype == 'rust'
+        :Ctest
+    elseif &filetype == 'go'
+        :GoTest
     endif
 endfunc
