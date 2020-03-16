@@ -30,6 +30,10 @@ Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
 Plug 'maxmellon/vim-jsx-pretty'
 
+" search&view sombols
+Plug 'majutsushi/tagbar'
+let g:tagbar_left = 1
+
 " auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -206,7 +210,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using coc-snippets
 " ----------------------------------------------------------
@@ -216,15 +220,15 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Using CocList
 " ----------------------------------------------------------
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>e  :<C-u>CocList extensions<CR>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <space>c  :<C-u>CocList commands<CR>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>o  :<C-u>CocList outline<CR>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<CR>
 " Do default action for next item.
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
@@ -248,20 +252,25 @@ noremap <C-F>d :<C-U><C-R>=printf("Leaderf! rg -F --all-buffers -e %s ", expand(
 noremap <C-F>t :<C-U>Leaderf! rg --recall<CR>
 
 " F2 function list
-noremap <F2> :LeaderfFunction<cr>
+noremap <F2> :LeaderfFunction<CR>
 " F3 tag list
-noremap <F3> :LeaderfBufTag<cr>
+noremap <F3> :LeaderfBufTag<CR>
 " F4
 noremap <F4> :call Build()<CR>
 " F5 run
 noremap <F5> :call Execute()<CR>
-" F6 run
+" F6 test
 noremap <F6> :call Test()<CR>
+" F8 
+noremap <F8> :TagbarToggle<CR>
 
 " <leader>f All files
 " <leader>m MRU files 
-noremap <leader>m :LeaderfMru<cr>
+noremap <leader>m :LeaderfMru<CR>
 
+
+" Functions
+" ----------------------------------------------------------
 func! Execute()
     if &filetype == 'python'
         call CocActionAsync('runCommand','python.execInTerminal')
