@@ -12,6 +12,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_auto_type_info = 1
 
 " rust
 Plug 'rust-lang/rust.vim'
@@ -84,6 +85,7 @@ Plug 'tomasr/molokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " edit utility
+Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-dirvish'
 nmap <leader>e :Dirvish<CR>
 
