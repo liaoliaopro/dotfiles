@@ -76,6 +76,8 @@ let g:ale_fixers = {
     \ 'python': ['yapf', 'isort'],
     \ }
 let g:ale_fix_on_save = 1
+let g:ale_linters = {'rust': ['analyzer']}
+
 
 " color
 Plug 'morhetz/gruvbox'
@@ -277,7 +279,7 @@ func! Execute()
     if &filetype == 'python'
         call CocActionAsync('runCommand','python.execInTerminal')
     elseif &filetype == 'rust'
-        :Crun
+        :Cargo run
     elseif &filetype == 'go'
         :GoRun
     endif
@@ -286,6 +288,7 @@ endfunc
 func! Build()
     if &filetype == 'python'
     elseif &filetype == 'rust'
+        :Cargo build
     elseif &filetype == 'go'
         :GoBuild
     endif
@@ -294,7 +297,7 @@ endfunc
 func! Test()
     if &filetype == 'python'
     elseif &filetype == 'rust'
-        :Ctest
+        :Cargo test
     elseif &filetype == 'go'
         :GoTest
     endif
