@@ -35,6 +35,10 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'majutsushi/tagbar'
 let g:tagbar_left = 1
 
+Plug 'liuchengxu/vista.vim'
+let g:vista_sidebar_position = 'vertical topleft'
+let g:vista_sidebar_width = 40
+
 " auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -70,7 +74,6 @@ let g:ale_lint_delay = 500
 let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
-let g:airline#extensions#ale#enabled = 1
 " not work here! check coc-python format
 let g:ale_fixers = {
     \ 'python': ['yapf', 'isort'],
@@ -129,15 +132,24 @@ Plug 'stephpy/vim-yaml'
 Plug 'jeetsukumaran/vim-pythonsense'
 
 " fancy
+"Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#coc#enabled = 1
-"Plug 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+"let g:airline_powerline_fonts = 1
+let g:airline_theme='bubblegum'
+
 
 " fancy start screen
 Plug 'mhinz/vim-startify'
 
 " window resizer
 Plug 'simeji/winresizer'
+
+" terminal
+Plug 'voldikss/vim-floaterm'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All of your Plugs must be added before the following line
@@ -265,8 +277,13 @@ noremap <F4> :call Build()<CR>
 noremap <F5> :call Execute()<CR>
 " F6 test
 noremap <F6> :call Test()<CR>
+" F10 
+noremap <F10> :Vista!!<CR>
 " F8 
 noremap <F8> :TagbarToggle<CR>
+
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 
 " <leader>f All files
 " <leader>m MRU files 
