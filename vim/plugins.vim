@@ -35,9 +35,9 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'majutsushi/tagbar'
 let g:tagbar_left = 1
 
-Plug 'liuchengxu/vista.vim'
-let g:vista_sidebar_position = 'vertical topleft'
-let g:vista_sidebar_width = 40
+"Plug 'liuchengxu/vista.vim'
+"let g:vista_sidebar_position = 'vertical topleft'
+"let g:vista_sidebar_width = 40
 
 " auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -278,7 +278,7 @@ noremap <F5> :call Execute()<CR>
 " F6 test
 noremap <F6> :call Test()<CR>
 " F10 
-noremap <F10> :Vista!!<CR>
+"noremap <F10> :Vista!!<CR>
 " F8 
 noremap <F8> :TagbarToggle<CR>
 
@@ -289,6 +289,9 @@ tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 " <leader>m MRU files 
 noremap <leader>m :LeaderfMru<CR>
 
+" Python run
+autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
 " Functions
 " ----------------------------------------------------------
