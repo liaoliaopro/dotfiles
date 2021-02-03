@@ -150,6 +150,8 @@ Plug 'simeji/winresizer'
 
 " terminal
 Plug 'voldikss/vim-floaterm'
+let g:floaterm_wintype = 'normal'
+let g:floaterm_autoclose = 2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " All of your Plugs must be added before the following line
@@ -282,8 +284,9 @@ noremap <F6> :call Test()<CR>
 " F8 
 noremap <F8> :TagbarToggle<CR>
 
-nnoremap   <silent>   <F12>   :FloatermToggle<CR>
-tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+noremap    <silent>   <F12>  :FloatermToggle<CR>
+nnoremap   <silent>   <F12>  :FloatermToggle<CR>
+tnoremap   <silent>   <F12>  <C-\><C-n>:FloatermToggle<CR>
 
 " <leader>f All files
 " <leader>m MRU files 
